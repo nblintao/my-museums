@@ -1,0 +1,25 @@
+# robots.txt for 故宮展覽通 (museums.qcngt.com)
+
+User-agent: *
+Allow: /
+
+# 允許所有搜尋引擎索引
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+
+# Sitemap 位置
+Sitemap: https://museums.qcngt.com/sitemap.xml
+
+# 針對主要搜尋引擎的特定設定
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# 爬取速率限制（可選）
+# Crawl-delay: 1
