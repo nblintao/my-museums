@@ -34,19 +34,43 @@ body {
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     box-shadow: var(--shadow);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     font-weight: 700;
+    line-height: 1.2;
+}
+
+header .header-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+header .header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 header .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.95;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
 /* 日期选择器 */
@@ -443,8 +467,21 @@ footer a:hover {
         font-size: 1.8rem;
     }
 
+    header .header-icon {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
     header .subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
+    }
+
+    header {
+        padding: 1.25rem 0;
+    }
+
+    header .container {
+        gap: 0.75rem;
     }
 
     .tabs {
@@ -488,6 +525,23 @@ footer a:hover {
 
     header h1 {
         font-size: 1.5rem;
+    }
+
+    header .header-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    header .subtitle {
+        font-size: 0.8rem;
+    }
+
+    header {
+        padding: 1rem 0;
+    }
+
+    header .container {
+        gap: 0.6rem;
     }
 
     .exhibition-card {
