@@ -163,8 +163,45 @@ function updateToggleExpiredButton(visitDate) {
     });
 }
 
+// 滚动时缩小header
+function initStickyHeader() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    let ticking = false;
+
+    function updateHeader() {
+        const scrollY = window.scrollY;
+
+        // 滚动超过50px时添加scrolled类
+        if (scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        ticking = false;
+    }
+
+    // 使用requestAnimationFrame优化性能
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // 初始检查
+    updateHeader();
+}
+
 // 标签页切换功能
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化滚动header
+    initStickyHeader();
+
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
 
