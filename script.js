@@ -1,7 +1,12 @@
 const DateManager = window.DateManager;
+const SharedUI = window.SharedUI;
 
 if (!DateManager) {
     throw new Error('DateManager 未載入，請確認已正確引入 src/scripts/date-manager.js');
+}
+
+if (!SharedUI) {
+    throw new Error('SharedUI 未載入，請確認已正確引入 src/scripts/shared-ui.js');
 }
 
 if (typeof DateManager.initializeDateController !== 'function') {
@@ -163,44 +168,10 @@ function updateToggleExpiredButton(visitDate) {
     });
 }
 
-// 滚动时缩小header
-function initStickyHeader() {
-    const header = document.querySelector('header');
-    if (!header) return;
-
-    let ticking = false;
-
-    function updateHeader() {
-        const scrollY = window.scrollY;
-
-        // 滚动超过50px时添加scrolled类
-        if (scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        ticking = false;
-    }
-
-    // 使用requestAnimationFrame优化性能
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // 初始检查
-    updateHeader();
-}
-
 // 标签页切换功能
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化滚动header
-    initStickyHeader();
+    SharedUI.initStickyHeader();
 
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');

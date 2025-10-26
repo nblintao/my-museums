@@ -1,59 +1,7 @@
-/* 全局样式 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #8b4513;
-    --secondary-color: #d4a574;
-    --accent-color: #c8102e;
-    --text-color: #333;
-    --light-bg: #f8f5f2;
-    --card-bg: #ffffff;
-    --border-color: #e0d5c7;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--light-bg);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 页头 */
-header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    color: white;
-    padding: 1.5rem 0;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-/* 禁用header及其所有子元素的过渡效果 */
-header,
-header * {
-    transition: none !important;
-}
-
-header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
+/* ============================================
+   首页特定样式
+   共用样式请参考 shared/common.css
+   ============================================ */
 
 .header-main {
     display: flex;
@@ -90,25 +38,6 @@ header .subtitle {
     font-weight: 400;
     letter-spacing: 0.02em;
     line-height: 1.4;
-}
-
-/* 日期选择器 */
-.date-selector {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: nowrap;
-    flex-shrink: 0;
-}
-
-.date-selector label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-    opacity: 0.95;
 }
 
 /* 标签页 */
@@ -459,40 +388,8 @@ header .subtitle {
     line-height: 1.8;
 }
 
-/* 页脚 */
-footer {
-    background: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-
-footer p {
-    margin: 0.5rem 0;
-}
-
-footer a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-footer a:hover {
-    border-bottom-color: var(--secondary-color);
-}
-
 /* 响应式设计 */
 @media (max-width: 768px) {
-    /* 标准版 */
-    header {
-        padding: 1.25rem 0;
-    }
-
-    header .container {
-        gap: 1rem;
-    }
 
     .header-main {
         flex: 1 1 100%;
@@ -512,38 +409,6 @@ footer a:hover {
         font-size: 0.85rem;
     }
 
-    .date-selector {
-        flex: 1 1 100%;
-        gap: 0.75rem;
-        padding-top: 0.75rem;
-        margin-top: 0.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        justify-content: flex-start;
-    }
-
-    .date-selector label {
-        font-size: 0.85rem;
-    }
-
-    .date-selector input[type="date"] {
-        font-size: 0.9rem;
-        padding: 0.45rem 0.75rem;
-    }
-
-    .date-selector .today-icon-btn {
-        padding: 0.45rem 0.75rem;
-        font-size: 0.9rem;
-    }
-
-    /* 滚动后的小版 */
-    header.scrolled {
-        padding: 0.75rem 0;
-    }
-
-    header.scrolled .container {
-        gap: 0.75rem;
-    }
-
     header.scrolled .header-main {
         gap: 0.75rem;
     }
@@ -559,26 +424,6 @@ footer a:hover {
 
     header.scrolled .subtitle {
         font-size: 0.75rem;
-    }
-
-    header.scrolled .date-selector {
-        gap: 0.5rem;
-        padding-top: 0.5rem;
-        margin-top: 0.4rem;
-    }
-
-    header.scrolled .date-selector label {
-        font-size: 0.8rem;
-    }
-
-    header.scrolled .date-selector input[type="date"] {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
-    }
-
-    header.scrolled .date-selector .today-icon-btn {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.85rem;
     }
 
     .tabs {
@@ -616,19 +461,6 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    /* 标准版 */
-    header {
-        padding: 1rem 0;
-    }
-
-    header .container {
-        gap: 0.75rem;
-    }
-
     .header-main {
         gap: 0.75rem;
     }
@@ -646,34 +478,6 @@ footer a:hover {
         font-size: 0.8rem;
     }
 
-    .date-selector {
-        gap: 0.6rem;
-        padding-top: 0.6rem;
-    }
-
-    .date-selector label {
-        font-size: 0.8rem;
-    }
-
-    .date-selector input[type="date"] {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
-    }
-
-    .date-selector .today-icon-btn {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.85rem;
-    }
-
-    /* 滚动后的小版 */
-    header.scrolled {
-        padding: 0.6rem 0;
-    }
-
-    header.scrolled .container {
-        gap: 0.6rem;
-    }
-
     header.scrolled .header-main {
         gap: 0.6rem;
     }
@@ -689,26 +493,6 @@ footer a:hover {
 
     header.scrolled .subtitle {
         font-size: 0.7rem;
-    }
-
-    header.scrolled .date-selector {
-        gap: 0.4rem;
-        padding-top: 0.4rem;
-        margin-top: 0.35rem;
-    }
-
-    header.scrolled .date-selector label {
-        font-size: 0.75rem;
-    }
-
-    header.scrolled .date-selector input[type="date"] {
-        font-size: 0.8rem;
-        padding: 0.35rem 0.5rem;
-    }
-
-    header.scrolled .date-selector .today-icon-btn {
-        padding: 0.35rem 0.5rem;
-        font-size: 0.8rem;
     }
 
     .exhibition-card {
